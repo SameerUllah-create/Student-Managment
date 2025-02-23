@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore;     // For Entity Framework Core functional
 
 class StudentManagement
 {
-    static void Main(string[] args)
+    static void Main()
     {
         while (true)
         {
-            Console.WriteLine("\n=== Student Management System ===");
+            Console.WriteLine("\n**** Student Management System ****");
             Console.WriteLine("1. Add Student");
             Console.WriteLine("2. Update Student");
             Console.WriteLine("3. Display All Students");
@@ -88,7 +88,7 @@ class StudentManagement
                     string oldRecord = $"ID: {student.Id}, Name: {student.FirstName} {student.LastName}";
                     student.History.Add(new HistoryRecord { Record = oldRecord });
 
-                    Console.WriteLine("\n=== Enter New Information ===");
+                    Console.WriteLine("\n**** Enter New Information ****");
 
                     Console.Write("Enter New First Name (leave empty to keep unchanged): ");
                     string newFirstName = Console.ReadLine();
@@ -106,7 +106,7 @@ class StudentManagement
 
                     db.SaveChanges();
 
-                    Console.WriteLine("\n=== Record Updated Successfully! ===");
+                    Console.WriteLine("\n**** Record Updated Successfully! ****");
                     Console.WriteLine($"Previous Record: {oldRecord}");
                     Console.WriteLine($"Updated Record: ID: {student.Id}, Name: {student.FirstName} {student.LastName}");
                 }
@@ -130,7 +130,7 @@ class StudentManagement
             {
                 var students = db.Students.ToList();
 
-                Console.WriteLine("\n=== All Students ===");
+                Console.WriteLine("\n**** All Students ****");
                 if (students.Count > 0)
                 {
                     foreach (var student in students)
@@ -165,7 +165,7 @@ class StudentManagement
 
                 if (result.Count > 0)
                 {
-                    Console.WriteLine("\n=== Search Results ===");
+                    Console.WriteLine("\n**** Search Results ****");
                     foreach (var student in result)
                     {
                         Console.WriteLine($"ID: {student.Id}, Name: {student.FirstName} {student.LastName}");
